@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  line-height: 2.3em;
+  .navigation{
+
+    .nav-list{
+      display: flex;
+      justify-content: space-around;
+
+      .nav-items{
+
+      }
+    }
+  }
+}
