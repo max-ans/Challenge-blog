@@ -1,29 +1,27 @@
 import React from 'react';
-import postsList from 'src/data/posts';
+import PropTypes from 'prop-types';
+
 import Article from './Article';
 
 import './articles.scss';
 
-const Articles = () => (
-  <div className="articles">
-
-    {postsList.map((post) => {
-      const {
-        id,
-        title,
-        category,
-        excerpt,
-      } = post;
-      return (
-        <Article
-          key={id}
-          title={title}
-          category={category}
-          excerpt={excerpt}
-        />
-      );
-    })}
-  </div>
+const Articles = ({ posts }) => (
+  <main className="articles">
+    {posts.map((post) => (
+      <Article
+        key={post.id}
+        {...post}
+      />
+    ))}
+  </main>
 );
+
+Articles.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isrequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Articles;

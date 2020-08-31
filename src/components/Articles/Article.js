@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './articles.scss';
 
 const Article = ({ title, category, excerpt }) => (
-  <div className="article">
+  <article className="article">
     <h2 className="article-title">
       {title}
     </h2>
@@ -14,7 +14,7 @@ const Article = ({ title, category, excerpt }) => (
     <p className="article-body">
       {excerpt}
     </p>
-  </div>
+  </article>
 );
 
 Article.propTypes = {
