@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import './header.scss';
 
@@ -8,9 +9,15 @@ const Header = ({ categories }) => (
     <nav className="navigation">
       <ul className="nav-list">
         {categories.map((category) => (
-          <a key={category.label} className="nav-items" href={category.route}>
+          <NavLink
+            key={category.label}
+            className="nav-items"
+            to={category.route}
+            activeClassName="nav-items--selected"
+            exact
+          >
             {category.label}
-          </a>
+          </NavLink>
         ))}
       </ul>
     </nav>
