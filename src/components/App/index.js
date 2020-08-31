@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import Header from 'src/components/Header';
+import Articles from 'src/components/Articles';
 // == Import
 import './styles.scss';
 
@@ -8,6 +9,7 @@ import './styles.scss';
 const App = () => (
   <div className="app">
     <Header />
+    <Articles />
   </div>
 );
 

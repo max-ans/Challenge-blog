@@ -13,6 +13,7 @@ const Header = () => (
         <li className="nav-items">Autre</li>
       </ul>
     </nav>
+    <h1 className="header-title">dev of thrones</h1>
   </div>
 );
 

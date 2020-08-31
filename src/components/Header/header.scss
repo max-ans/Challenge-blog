@@ -1,17 +1,29 @@
+@import '../../styles/vars';
+
+
 .header {
   width: 100%;
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
   line-height: 2.3em;
   .navigation{
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
 
     .nav-list{
       display: flex;
       justify-content: space-around;
 
       .nav-items{
-
+        color: $article;
       }
     }
+  }
+
+  .header-title{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3em;
+    color: $main;
+    margin: 2em 0;
   }
 }
