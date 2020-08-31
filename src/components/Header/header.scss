@@ -17,6 +17,16 @@
 
       .nav-items{
         color: $article;
+
+
+        &:hover {
+          text-decoration: underline;
+        }
+        
+      }
+
+      .nav-items--selected {
+        color: $main;
       }
     }
   }
