@@ -8,9 +8,12 @@
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 
+    
     .nav-list{
       display: flex;
       justify-content: space-around;
+      height: 15vh;
+      align-items: center;
 
       .nav-items{
         color: $article;
