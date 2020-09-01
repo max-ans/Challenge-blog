@@ -18,20 +18,24 @@ import { getPostsByCategory } from 'src/utils/selectors';
 const App = () => {
   const [posts, setPosts] = useState([]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const [displayError, setDisplayError] = useState(false);
 
   const loadPosts = () => {
     axios.get('https://oclock-open-apis.now.sh/api/blog/posts')
       .then((response) => {
         console.log(response.data);
         setPosts(response.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.warn(error);
+        setDisplayError(true);
+      })
+      .finally(() => {
+        console.log('.finally');
+        setLoading(false);
       });
-    console.log('chargement');
-    setLoading(true);
   };
 
   return (
@@ -47,6 +51,7 @@ const App = () => {
         </button>
       </div>
       { loading && <Loader />}
+      {displayError && <div>Une erreur est survenue</div>}
       <Switch>
         {categoriesData.map((category) => (
           <Route key={category.label} exact path={category.route}>
