@@ -1,7 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 
 import './articles.scss';
+
+// exemple de faille XSS
+
+// OWASP.COM
+
+// lorsque le contenu reçue est interprèter avec dangerouslySetInnerHtml
+// sans être néttoyer, Si un article de la catégories O'clock est present
+// sur la page, Nous somme directement rediriger vers le site O'clock.io .
+// c'est une faille XSS
+// Pour contrer le problème, on utilise la librairie DOMPurify, qui va
+// néttoyer (et réparer, si il manque une balise fermante par exemple)
+// le texte de toutes les balise et autre chose qui pourraient
+// être executés. C'est le travail de la fonction sanitize de DOMPurify.
+function createMarkup(content) {
+  return {
+    __html: DOMPurify.sanitize(content),
+  };
+}
 
 const Article = ({ title, category, excerpt }) => (
   <article className="article">
@@ -11,9 +30,7 @@ const Article = ({ title, category, excerpt }) => (
     <div className="article-category">
       {category}
     </div>
-    <p className="article-body">
-      {excerpt}
-    </p>
+    <p className="article-body" dangerouslySetInnerHTML={createMarkup(excerpt)} />
   </article>
 );
 

@@ -30,6 +30,14 @@
       padding: 1em 0;
       line-height: 1.8em;
       color: $article;
+
+      em {
+        font-style: italic;
+      }
+
+      strong {
+        font-weight: bold;
+      }
     }
   }
 }
