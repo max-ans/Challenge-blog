@@ -8,6 +8,7 @@ import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Articles from 'src/components/Articles';
 import Loader from 'src/components/Loader';
+import SingleArticle from 'src/components/SingleArticle';
 
 // import categoriesData from 'src/data/categories';
 // import postsData from 'src/data/posts';
@@ -97,6 +98,9 @@ const App = () => {
               />
             </Route>
           ))}
+        <Route path="/article/:slug">
+          <SingleArticle articles={posts} />
+        </Route>
         <Route path="/reactJS">
           <Redirect to="/react" />
         </Route>

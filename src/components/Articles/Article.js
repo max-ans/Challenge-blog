@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
-
+import { Link } from 'react-router-dom';
 import './articles.scss';
 
 // exemple de faille XSS
@@ -22,15 +22,24 @@ function createMarkup(content) {
   };
 }
 
-const Article = ({ title, category, excerpt }) => (
+const Article = ({
+  title,
+  category,
+  excerpt,
+  slug,
+}) => (
   <article className="article">
-    <h2 className="article-title">
-      {title}
-    </h2>
-    <div className="article-category">
-      {category}
-    </div>
-    <p className="article-body" dangerouslySetInnerHTML={createMarkup(excerpt)} />
+    <Link
+      to={`/article/${slug}`}
+    >
+      <h2 className="article-title">
+        {title}
+      </h2>
+      <div className="article-category">
+        {category}
+      </div>
+      <p className="article-body" dangerouslySetInnerHTML={createMarkup(excerpt)} />
+    </Link>
   </article>
 );
 
@@ -38,6 +47,7 @@ Article.propTypes = {
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default Article;
