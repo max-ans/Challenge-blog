@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 // == Import
 import Header from 'src/components/Header';
@@ -19,8 +20,17 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const loadPosts = () => {
+    axios.get('https://oclock-open-apis.now.sh/api/blog/posts')
+      .then((response) => {
+        console.log(response.data);
+        setPosts(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.warn(error);
+      });
     console.log('chargement');
-    setLoading(!loading);
+    setLoading(true);
   };
 
   return (
@@ -44,6 +54,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 // == Export
 export default App;
