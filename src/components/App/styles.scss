@@ -1,4 +1,16 @@
+@import '../../styles/vars';
+
 .app {
   width: 80vw;
   margin: 1em auto;
+  
+  .app-action {
+    text-align: center;
+
+    .app-button {
+      color: $category;
+      background-color: $main;
+      margin: 1em;
+    }
+  }
 }

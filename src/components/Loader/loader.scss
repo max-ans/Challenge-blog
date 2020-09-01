@@ -1,0 +1,24 @@
+@import '../../styles/vars';
+
+.loader {
+
+  text-align: center;
+  margin: 1em auto;
+  background-color: $main;
+  .loader-text {
+    color: $category;
+    line-height: 2em;
+    @keyframes blink-me {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    animation: 0.9s blink-me infinite;
+  }
+}

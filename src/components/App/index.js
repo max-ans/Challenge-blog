@@ -7,6 +7,7 @@ import axios from 'axios';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Articles from 'src/components/Articles';
+import Loader from 'src/components/Loader';
 
 import categoriesData from 'src/data/categories';
 // import postsData from 'src/data/posts';
@@ -36,8 +37,16 @@ const App = () => {
   return (
     <div className="app">
       <Header categories={categoriesData} />
-      <button type="button" onClick={loadPosts}>Charger les articles</button>
-      { loading && <div>Chargement en cours.... </div>}
+      <div className="app-action">
+        <button
+          type="button"
+          onClick={loadPosts}
+          className="app-button"
+        >
+          Charger les articles
+        </button>
+      </div>
+      { loading && <Loader />}
       <Switch>
         {categoriesData.map((category) => (
           <Route key={category.label} exact path={category.route}>
