@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "dompurify": "^2.0.14",
+    "dompurify": "^2.0.17",
     "prop-types": "*",
     "react": "^16.13.1",
     "react-dom": "*",
